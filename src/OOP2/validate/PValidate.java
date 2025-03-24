@@ -1,6 +1,7 @@
 package OOP2.validate;
 
-import ra.imp.ProductImp;
+import OOP2.menu.PMenu;
+
 
 import java.util.Scanner;
 
@@ -22,9 +23,9 @@ public class PValidate {
             }
 
             boolean isExist = false;
-            if (ProductImp.currentProductIndex > 0) {
-                for (int i = 0; i < ProductImp.currentProductIndex; i++) {
-                    if (ProductImp.arrProduct[i].getProductId().equalsIgnoreCase(productId)) {
+            if (PMenu.currentProductIndex > 0) {
+                for (int i = 0; i < PMenu.currentProductIndex; i++) {
+                    if (PMenu.arrProduct[i].getProductId().equalsIgnoreCase(productId)) {
                         isExist = true;
                         break;
                     }
@@ -42,8 +43,8 @@ public class PValidate {
     public static String validateProductName(Scanner scanner, String productName, int indexUpdate) {
         do {
             boolean isExist = false;
-            for (int i = 0; i < ProductImp.currentProductIndex; i++) {
-                if (ProductImp.arrProduct[i].getProductName().equals(productName) && i != indexUpdate) {
+            for (int i = 0; i < PMenu.currentProductIndex; i++) {
+                if (PMenu.arrProduct[i].getProductName().equals(productName) && i != indexUpdate) {
                     isExist = true;
                     break;
                 }
