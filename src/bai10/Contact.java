@@ -1,5 +1,4 @@
 package bai10;
-import java.util.Objects;
 
 class Contact {
     private static int idCounter = 1;
@@ -26,12 +25,14 @@ class Contact {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Contact contact = (Contact) obj;
-        return Objects.equals(phoneNumber, contact.phoneNumber);
+        return (phoneNumber != null ? phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber == null);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(phoneNumber);
+        int result = 17;
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        return result;
     }
 
     @Override
