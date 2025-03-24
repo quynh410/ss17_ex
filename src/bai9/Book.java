@@ -1,7 +1,5 @@
 package bai9;
 
-import java.util.Objects;
-
 class Book {
     private String id;
     private String title;
@@ -32,12 +30,14 @@ class Book {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Book book = (Book) obj;
-        return id.equals(book.id);
+        return id != null && id.equals(book.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        int result = 17; // Giá trị khởi tạo bất kỳ (số nguyên dương)
+        result = 31 * result + (id == null ? 0 : id.hashCode());
+        return result;
     }
 
     @Override
